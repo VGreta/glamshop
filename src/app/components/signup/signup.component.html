@@ -1,0 +1,41 @@
+<div class="body mt-5">
+    <form #f="ngForm" (ngSubmit)="signUp(f)" class="text-center border border-light p-3">
+        <h2 class="text-center mb-4">Regisztráció</h2>
+
+        <div class="form-group">
+            <input ngModel name="name" #name="ngModel" type="text" class="form-control" placeholder="Teljes név" required>
+            <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Kérlek add meg a nevedet!</div>
+        </div>
+
+        <div class="form-group">
+            <input ngModel name="email" #email="ngModel" type="email" class="form-control" placeholder="Email-cím" required email>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Kérlek add meg az email-címedet!</div>
+            <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">Az email formátuma nem megfelelő!</div>
+        </div>
+
+        <div class="form-group">
+            <input ngModel name="mobile" #mobile="ngModel" type="text" class="form-control" placeholder="Telefonszám" required>
+            <div class="alert alert-danger" *ngIf="mobile.invalid && mobile.touched">Kérlek add meg a telefonszámodat!</div>
+        </div>
+
+        <div class="form-group">
+            <input ngModel name="password" #password="ngModel" type="password" class="form-control" placeholder="Jelszó" required minlength="5">
+            <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">Kérlek adj meg egy jelszót!</div>
+            <div class="alert alert-danger" *ngIf="password.touched && password.errors?.minlength">A jelszónak minimum 5 karakternek kell lennie!</div>
+        </div>
+        
+        <div class="form-group">
+            <input ngModel name="password2" #password2="ngModel" type="password" class="form-control" placeholder="Jelszó újra" required>
+            <div class="alert alert-danger" *ngIf="password2.invalid && password2.touched">Kérlek add meg újra a jelszavadat</div>
+            <div class="alert alert-danger" *ngIf="password.value != password2.value && password2.touched">A két megadott jelszó nem egyezik!</div>
+        </div>
+        
+        <div class="form-group">
+            <input ngModel name="address" #address="ngModel" type="text" class="form-control" placeholder="Számlázási cím" required>
+            <div class="alert alert-danger" *ngIf="address.invalid && address.touched">Kérlek add meg a számlázási címed!</div>
+        </div>
+
+        <button class="btn btn-dark btn-block my-4" [disabled]="f.invalid || password.value != password2.value" style="background-color: #26272b;">Fiók készítése</button>
+    </form>
+    <div class="alert alert-danger" style="max-width: 80%; margin-left: auto; margin-right: auto;" *ngIf="errorMessage">{{errorMessage}}</div>
+</div>

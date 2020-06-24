@@ -1,0 +1,105 @@
+.carousel-control-next,
+.carousel-control-prev {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.kell{
+    position: absolute;
+    top: 40%;
+    left: 21%;
+    right: auto;
+}
+
+.btn-xs {
+    padding: .25rem .4rem;
+    font-size: .4rem;
+    line-height: .5;
+    border-radius: .2rem;
+}
+
+ .first, .second, .third {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.threeimage {
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+@media screen and (max-width : 700px)
+{
+    .first h4, .second h4, .third h4 {
+        font-size: 0.75rem;
+    }
+
+    .first img, .second img, .third img {
+        height: 2rem;
+    }
+
+    .text {
+        margin-top: 0.5rem;
+    }
+
+    .right {
+        right: 25%;
+    }
+}
+@media screen and (max-width : 1000px) and (min-width : 700px)
+{
+    .first h4, .second h4, .third h4 {
+        font-size: 1rem;
+    }
+
+    .first img, .second img, .third img {
+        height: 3rem;
+    }
+
+    .text {
+        margin-top: 1rem;
+    }
+
+    .right {
+        right: 25%;
+    }
+
+    .card-group {
+        min-height: 420px;
+    }
+}
+
+@media screen and (min-width : 1000px)
+{
+    .first h4, .second h4, .third h4 {
+        font-size: 1rem;
+    }
+
+    .first img, .second img, .third img {
+        height: 5rem;
+    }
+
+    .text {
+        margin-top: 1rem;
+    }
+
+    .right {
+        right: 32%;
+    }
+}
+
+.button {
+    position: absolute;
+    bottom: 1.5rem;
+}
+
+.card-text {
+    margin-bottom: 80px;
+}
+
+.btn-outline-dark:hover {
+	background-color: #26272b;
+}

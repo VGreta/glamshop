@@ -1,0 +1,43 @@
+<router-outlet></router-outlet>
+
+<!-- Termékek -->
+<h2 style="font-weight: 700;">Termékeink</h2>
+<div class="container body">
+  <div class="row align-items-stretch">
+      <div class="col-lg-3 col-md-4 col-6 mb-3 d-flex card-group" *ngFor="let item of items; index as i">
+          <div class="card" style="width: 18rem; border: none;">
+              <img class="card-img-top" [src]="item.photoURL" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 0.9rem; text-align: center;">{{item.productName}}</h5>
+                <p class="card-text" style="text-align: center;">{{item.price}} Ft</p>
+                <div style="text-align: center;">
+                  <button class="btn btn-dark button right" style="background-color: #26272b;" (click)="addCart(i)" *ngIf="add === -1">Kosárba</button>
+                </div>
+                <div class="button" *ngIf="add === i" style="text-align: center;">
+                  <input type="number" class="form-control mb-1" placeholder="mennyiség:" #quantity>
+                  <button class="btn btn-sm btn-outline-dark mr-1" (click)="back()">Vissza</button>
+                  <button class="btn btn-sm btn-dark ml-1" style="background-color: #26272b;" data-toggle="modal" data-target="#exampleModalCenter" (click)="buy(quantity.value)">Kosárba</button>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Hozzáadva a kosárhoz!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-angle-double-left"></i> Folytatom a vásárlást</button>
+        <button type="button" class="btn btn-dark" style="background-color: #26272b;" routerLink="/cart" routerLinkActive="active" data-dismiss="modal">Kosárhoz</button>
+      </div>
+    </div>
+  </div>
+</div>

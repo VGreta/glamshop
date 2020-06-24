@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 style="font-weight: 700; text-align: center; padding-bottom: 1rem; padding-top: 2rem;">Termék hozzáadása</h2>
+  <form #f="ngForm" (ngSubmit)="addNewItem(f)">
+    <div class="form-group">
+      <input type="text" class="form-control" name="productName" ngModel placeholder="Termék neve">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" name="price" ngModel placeholder="Termék ára">
+    </div>
+    <div class="form-group">
+      <input type="file" ngModel name="photoURL" #photo>
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <input type="submit" value="Hozzáadás" class="btn btn-dark" style="background-color: #26272b;">
+    </div>
+  </form>
+</div>

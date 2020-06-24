@@ -1,0 +1,80 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #26272b;">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+        <img src="../assets/icon.png" width="30" height="30" style="border-radius: 20%;" class="d-inline-block align-top" alt="">
+        GlamStore</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive="active">Főoldal</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="active">Termékek</a>
+        </li>  
+        <li class="nav-item" *ngIf="isUser">
+            <a class="nav-link" routerLink="/cart" routerLinkActive="active">Kosár</a>
+        </li>   
+        <li class="nav-item" *ngIf="!isUser">
+            <a class="nav-link" routerLink="/signin" routerLinkActive="active">Bejelentkezés</a>
+        </li>
+        <li class="nav-item" *ngIf="!isUser">
+            <a class="nav-link" routerLink="/signup" routerLinkActive="active">Regisztráció</a>
+        </li>
+        <li class="nav-item" *ngIf="isUser">
+            <a class="nav-link" (click)="signOut()">Kijelentkezés</a>
+        </li>
+        <li class="nav-item" *ngIf="isUser && isAdmin">
+            <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li> 
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-9">
+          <h6>Rólunk</h6>
+          <p class="text-justify">A GlamStore nevű webshop 2020 nyarán készült el. Megálmodója Véninger Gréta, aki a HelixLab Frontend fejlesztő képzésére készítette. Az oldalon több fajta sminktermék található meg, mint például alapozók, korrektorok, sminkpaletták, rúzsok. Ezen kívül a webshopban találhatóak még különböző smink kiegészítők (szempillagöndörítő). Bármilyen kérdés esetén keressen bennünket Facebook-on, Instagram-on, Twitteren vagy a glamshop@glamshop.com e-mail címen. Jó vásárlást!</p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Menüpontok</h6>
+          <ul class="footer-links">
+            <li><a routerLink="/" routerLinkActive="active">Főoldal</a></li>
+            <li><a routerLink="/products" routerLinkActive="active">Termékek</a></li>
+            <li *ngIf="isUser"><a routerLink="/cart" routerLinkActive="active">Kosár</a></li>
+            <li *ngIf="!isUser"><a routerLink="/signin" routerLinkActive="active">Bejelentkezés</a></li>
+            <li *ngIf="!isUser"><a routerLink="/signup" routerLinkActive="active">Regisztráció</a></li>
+            <li *ngIf="isUser"><a (click)="signOut()">Kijelentkezés</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+       Véninger Gréta.
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="instagram" href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+            <li><a class="linkedin" href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>   
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>

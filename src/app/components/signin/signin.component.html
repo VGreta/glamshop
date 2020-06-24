@@ -1,0 +1,16 @@
+<div class="body mt-5">
+    <form [formGroup]="loginForm" class="text-center border border-light p-3" (ngSubmit)="signIn()">
+        <h2 class="text-center mb-4">Bejelentkezés</h2>
+        <div class="form-group">
+            <input type="email" class="form-control" formControlName="email" placeholder="email-cím" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" formControlName="password" placeholder="jelszó" required>
+        </div>
+        <button class="btn btn-dark btn-block my-4" style="background-color: #26272b;">Bejelentkezés</button>
+        <p>Nem vagy tag?
+            <a routerLink="/signup" routerLinkActive="active" style="color: #be1b44;">Regisztrálj!</a>
+        </p>
+    </form>
+    <div class="alert alert-danger" style="max-width: 80%; margin-left: auto; margin-right: auto;" *ngIf="errorMessage">Hiba a bejelentkezés során, kérlek próbáld újra!</div>
+</div>
